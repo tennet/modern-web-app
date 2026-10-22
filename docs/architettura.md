@@ -27,12 +27,12 @@ modern-web-app/
 ---
 
 ## 3. Standard di Design & UI
-- **Palette Primaria**: Base `zinc-950` (`#09090b`), superfici card in `zinc-900/50` con effetto `backdrop-blur`.
-- **Accenti**: Ciano (`cyan-500`) e Viola (`violet-600`) per gradienti e badge di stato attivi.
+- **Palette Primaria**: Base `zinc-950` (`#09090b`), superfici card in `zinc-900/40` con effetto `backdrop-blur-xl`.
+- **Accenti**: Ciano (`cyan-500`) per gradienti e selezione; Viola (`violet-600`) come glow ambientale; badge di stato attivi in `emerald-400`.
 - **Micro-interazioni**:
   - Spotlight al passaggio del cursore sulle card.
   - Indicatore di stato heartbeat pulsante (`animate-ping`).
-  - Filtraggio e navigazione a schede asincrona.
+  - Navigazione a schede (stub sincrono, pronto per aggiornamenti asincroni).
 
 ---
 

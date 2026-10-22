@@ -5,6 +5,7 @@
 ---
 
 ## 🌟 Caratteristiche
+- **Vademecum Operativo Completo**: Consulta [VADEMECUM.md](./VADEMECUM.md) per la guida dettagliata su come usare tutti i componenti (MCP, Plugin, Subagent, Git e Hooks).
 - **Design System Contemporaneo**: Layout a Bento Grid, dark mode sofisticata, micro-interazioni e spotlight hover.
 - **Docs-as-Code**: Documentazione tecnica viva in `docs/architettura.md`.
 - **Integrazione Antigravity**: Regole di progetto vincolanti in `.agents/rules/AGENTS.md`.

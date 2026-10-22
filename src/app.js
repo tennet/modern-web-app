@@ -31,11 +31,11 @@ window.switchTab = function(tabName) {
   tabs.forEach(tab => {
     const el = document.getElementById(tab);
     if (!el) return;
-    if (tab === 'tab-' + tabName) {
-      el.className = "px-3.5 py-1.5 rounded-lg bg-zinc-800 text-white font-medium shadow-sm transition-all";
-    } else {
-      el.className = "px-3.5 py-1.5 rounded-lg text-zinc-400 hover:text-zinc-200 transition-all";
-    }
+    const active = (tab === 'tab-' + tabName);
+    el.setAttribute('aria-selected', active ? 'true' : 'false');
+    el.className = active
+      ? "px-3.5 py-1.5 rounded-lg bg-zinc-800 text-white font-medium shadow-sm transition-all"
+      : "px-3.5 py-1.5 rounded-lg text-zinc-400 hover:text-zinc-200 transition-all";
   });
 
   const banner = document.getElementById('active-view-label');

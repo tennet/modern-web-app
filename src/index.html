@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="it" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Web App - Starter</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./styles.css">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            zinc: {
+              950: '#09090b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-zinc-950 text-zinc-100 font-sans antialiased min-h-screen p-4 md:p-8 relative selection:bg-cyan-500/20 selection:text-cyan-300">
+
+  <!-- Background Ambient Glow -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-[360px] bg-gradient-to-tr from-cyan-500/15 via-indigo-600/10 to-violet-600/15 blur-[130px] rounded-full glow-mesh"></div>
+    <div class="absolute bottom-10 right-10 w-[450px] h-[300px] bg-emerald-500/10 blur-[140px] rounded-full glow-mesh" style="animation-delay: -3s;"></div>
+  </div>
+
+  <div class="max-w-5xl mx-auto space-y-6">
+
+    <!-- Top App Header -->
+    <header class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-2xl bg-zinc-900/40 backdrop-blur-xl border border-white/[0.08]">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center font-bold text-white shadow-md shadow-indigo-500/20">
+          ⚡
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-base font-semibold tracking-tight text-white">Modern Web App</h1>
+            <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-mono font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+              Connesso a Git
+            </span>
+          </div>
+          <p class="text-xs text-zinc-400">Architettura Docs-as-Code & Bento Grid</p>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="flex items-center bg-zinc-950/70 p-1 rounded-xl border border-white/[0.06] text-xs">
+        <button id="tab-dashboard" onclick="switchTab('dashboard')" class="px-3.5 py-1.5 rounded-lg bg-zinc-800 text-white font-medium shadow-sm transition-all">Dashboard</button>
+        <button id="tab-nodes" onclick="switchTab('nodes')" class="px-3.5 py-1.5 rounded-lg text-zinc-400 hover:text-zinc-200 transition-all">Nodi</button>
+        <button id="tab-settings" onclick="switchTab('settings')" class="px-3.5 py-1.5 rounded-lg text-zinc-400 hover:text-zinc-200 transition-all">Impostazioni</button>
+      </div>
+    </header>
+
+    <!-- Bento Grid Showcase -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+      <!-- Card 1 (Col-span 2): Hero Section -->
+      <div class="md:col-span-2 rounded-2xl bg-zinc-900/40 backdrop-blur-xl border border-white/[0.08] p-6 spotlight-card group hover:border-white/[0.18] transition-all duration-300">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-[11px] font-mono tracking-widest text-cyan-400 font-semibold uppercase">SEZIONE ATTIVA: <span id="active-view-label">Dashboard</span></span>
+          <span class="text-xs text-zinc-500 font-mono">v1.0.0</span>
+        </div>
+        <h2 class="text-2xl font-bold tracking-tight text-white">Pronto per il Push su GitHub</h2>
+        <p class="text-sm text-zinc-400 mt-2 leading-relaxed">
+          Questo progetto è configurato con regole locali in <code class="text-xs bg-zinc-800 px-1.5 py-0.5 rounded text-zinc-200">.agents/</code>, documentazione tecnica in <code class="text-xs bg-zinc-800 px-1.5 py-0.5 rounded text-zinc-200">docs/</code> e protezione segreti in <code class="text-xs bg-zinc-800 px-1.5 py-0.5 rounded text-zinc-200">.gitignore</code>.
+        </p>
+
+        <!-- Dynamic Chart Display -->
+        <div class="mt-6 pt-4 border-t border-white/[0.06] grid grid-cols-2 gap-4">
+          <div>
+            <div class="text-[11px] text-zinc-500 font-mono uppercase">Carico CPU Stimato</div>
+            <div id="metric-cpu" class="text-2xl font-bold text-white mt-1">21.4%</div>
+          </div>
+          <div>
+            <div class="text-[11px] text-zinc-500 font-mono uppercase">Throughput Richieste</div>
+            <div id="metric-req" class="text-2xl font-bold text-white mt-1">1,420 req/s</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 (1x1): Repository Status -->
+      <div class="rounded-2xl bg-zinc-900/40 backdrop-blur-xl border border-white/[0.08] p-5 spotlight-card group hover:border-emerald-500/30 transition-all duration-300 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between text-zinc-400 mb-2">
+            <span class="text-[11px] font-mono tracking-wider text-emerald-400 uppercase font-semibold">STATO GIT</span>
+            <span class="text-emerald-400">✓</span>
+          </div>
+          <div class="text-xl font-bold text-white">Repository Locale Pronto</div>
+          <p class="text-xs text-zinc-400 mt-1">Branch principale: <span class="font-mono text-zinc-200">main</span></p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-white/[0.06] text-xs text-zinc-400 font-mono space-y-1">
+          <div class="flex justify-between"><span>.gitignore:</span> <span class="text-emerald-400 font-bold">ATTIVO</span></div>
+          <div class="flex justify-between"><span>Docs-as-Code:</span> <span class="text-cyan-400 font-bold">CONFIGURATO</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

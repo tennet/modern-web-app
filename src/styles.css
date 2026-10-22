@@ -1,0 +1,32 @@
+/* Custom Modern Design Tokens */
+:root {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.75; transform: scale(1.04); }
+}
+
+.glow-mesh {
+  animation: pulse-glow 9s ease-in-out infinite;
+}
+
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(550px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.07), transparent 40%);
+  pointer-events: none;
+  border-radius: inherit;
+  transition: opacity 0.3s ease;
+}

@@ -26,13 +26,12 @@ npx serve src
 
 ---
 
-## 🔗 Come collegare questo repository al tuo account GitHub
+## 🔗 Repository GitHub
 
-1. Vai su [github.com/new](https://github.com/new) e crea un nuovo repository (es. `modern-web-app`), senza inizializzarlo con README o .gitignore (li abbiamo già creati qui).
-2. Nel terminale, all'interno di questa cartella, collega il remote ed esegui il push:
+Il repository remoto è configurato e sincronizzato su:
+👉 **[github.com/tennet/modern-web-app](https://github.com/tennet/modern-web-app)**
 
+Comando per scaricarlo o clonarlo su qualsiasi altro computer:
 ```bash
-git remote add origin https://github.com/<TUO-USERNAME>/modern-web-app.git
-git branch -M main
-git push -u origin main
+git clone https://github.com/tennet/modern-web-app.git
 ```

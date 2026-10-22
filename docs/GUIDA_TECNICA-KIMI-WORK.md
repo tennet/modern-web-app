@@ -16,14 +16,20 @@ L'ambiente separa la **governance del workspace** (regole, skill, memoria persis
 flowchart TD
     User["👤 Manuele"] --> CLI["⚡ Kimi Work Engine"]
 
+    subgraph Runtime ["Kimi Desktop Runtime (fuori workspace)"]
+        Config["⚙️ config.json — feature flag, systemTools"]
+        Plugins["🔌 Plugin managed (27)"]
+    end
+
     subgraph GlobalGovernance ["Governance Workspace (~/Documents/kimi/)"]
         KIMI["📜 KIMI.md — regole, matrice L1/L2/L3, workflow, standard"]
         Skills["🧠 Skill registrate (69 gestite + sviluppo-completo + engineering-team)"]
-        Memory["🗄️ vault-memory — round notturni sui transcript"]
+        Memory["🗄️ vault-memory — round sui transcript"]
         MemDir["📁 memory/ — appoggio markdown locale"]
+        Backup["💾 config-backup-<data>.json"]
     end
 
-    subgraph Connectors ["Connettori & Plugin (27 managed)"]
+    subgraph Connectors ["Connettori attivi"]
         GH["☁️ GitHub MCP — 40+ tool autenticati"]
         WEB["🌐 Ricerca web + FetchURL nativi"]
         Mail["✉️ Gmail"]
@@ -38,7 +44,8 @@ flowchart TD
     end
 
     CLI --> GlobalGovernance
-    GlobalGovernance --> Connectors
+    CLI --> Runtime
+    Runtime --> Connectors
     CLI --> Project
 ```
 
@@ -108,7 +115,7 @@ flowchart TD
 - Stato persistito in `config.json` del runtime Kimi Desktop: tool rimosso da `systemTools.disabled` (resta disabilitato solo `skill-summary`); feature flags memoria attivi.
 - Il percorso esatto del config è nel backup conservato nel workspace (non versionato).
 
-### D. Altri connettori installati (27 plugin managed)
+### D. Altri connettori installati (26 plugin ulteriori — 27 totali includendo GitHub)
 gmail, obsidian, kimi-webbridge (browser reale utente), kimi-cu (computer use macOS), yahoo_finance, sec_edgar, imf, world_bank_open_data, igo_open_data, scholar, pubchem, ncbi_blast, materials_project, image_generation, video_generation, audio_generation, model3d_generation, openart-agent, canva-global, cloudflare, kimi-excel, kimi-pdf, kimi-word, kimix-website-publish, mobile-app-building, musepool.
 
 ---
@@ -181,14 +188,28 @@ Il ruolo security-auditor ha diritto di veto sulla Fase 5.
 > I percorsi esatti del runtime Kimi Desktop sono nel backup del config conservato nel workspace (non versionato).
 
 **Disabilitare/riabilitare vault-memory**: nel `config.json` del runtime Kimi Desktop, chiave
-`runtime.systemTools.disabled` → aggiungere/rimuovere `"vault-memory"`.
+`runtime.systemTools.disabled` → aggiungere/rimuovere `"vault-memory"`. Restore selettivo
+(una sola chiave) preferibile al full overwrite, che annullerebbe anche modifiche
+intenzionali successive alla migrazione.
 
 **Ripristino config pre-migrazione**: copiare il backup del config (creato prima della
 modifica, conservato nel workspace non versionato) sopra il `config.json` del runtime.
+Con più backup presenti, specificare il file esatto invece di un wildcard.
 
-⚠️ Ripristinare il config richiede riavvio di Kimi Desktop per avere effetto. Con più backup
-presenti, specificare il file esatto invece di un wildcard nel comando di copia. Il backup non
-è versionato: valutare una copia fuori dalla macchina per i backup futuri.
+**Rollback delle skill create in migrazione** (`sviluppo-completo`, `engineering-team`):
+risiedono nella directory skill del runtime Kimi Desktop; la disattivazione è la rimozione
+della rispettiva directory (o spostamento in una cartella di archivio). Non serve toccare
+il `config.json`.
+
+**Backup/restore dei dati di memoria**: la directory `memory/` del workspace è l'appoggio
+markdown — copiarla interamente prima di operazioni rischiose; un round vault-memory
+corrotto si recupera ripristinando tale copia e rilanciando un round manuale.
+
+**Checklist post-ripristino**: (1) Kimi Desktop riavviato; (2) round manuale vault-memory
+con esito `ok`; (3) skill `sviluppo-completo` ed `engineering-team` presenti e invocabili;
+(4) connettore GitHub risponde.
+
+⚠️ Il backup non è versionato: valutare una copia fuori dalla macchina per i backup futuri.
 
 ---
 
@@ -199,5 +220,5 @@ presenti, specificare il file esatto invece di un wildcard nel comando di copia.
 | Subagent paralleli on-demand | ⚠️ Solo su richiesta esplicita |
 | Hook formattazione automatica | ❌ Non presente (su richiesta) |
 | Plugin Docker | ❌ Non installato |
-| Knowledge graph MCP memory | ✅ Sostituito da vault-memory |
+| Knowledge graph MCP memory | ⚠️ Sostituito in parte: `vault-memory` copre persistenza e richiamo, ma non offre query strutturate su entità/relazioni come un KG. Guadagno: manutenzione automatizzata e markdown locale ispezionabile |
 | Tutto il resto (team, workflow, sicurezza policy, design system, Git standards) | ✅ Operativo |

@@ -7,20 +7,6 @@
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="./styles.css">
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            zinc: {
-              950: '#09090b',
-            }
-          }
-        }
-      }
-    }
-  </script>
 </head>
 <body class="bg-zinc-950 text-zinc-100 font-sans antialiased min-h-screen p-4 md:p-8 relative selection:bg-cyan-500/20 selection:text-cyan-300">
 
@@ -51,10 +37,10 @@
       </div>
 
       <!-- Navigation Tabs -->
-      <div class="flex items-center bg-zinc-950/70 p-1 rounded-xl border border-white/[0.06] text-xs">
-        <button id="tab-dashboard" onclick="switchTab('dashboard')" class="px-3.5 py-1.5 rounded-lg bg-zinc-800 text-white font-medium shadow-sm transition-all">Dashboard</button>
-        <button id="tab-nodes" onclick="switchTab('nodes')" class="px-3.5 py-1.5 rounded-lg text-zinc-400 hover:text-zinc-200 transition-all">Nodi</button>
-        <button id="tab-settings" onclick="switchTab('settings')" class="px-3.5 py-1.5 rounded-lg text-zinc-400 hover:text-zinc-200 transition-all">Impostazioni</button>
+      <div class="flex items-center bg-zinc-950/70 p-1 rounded-xl border border-white/[0.06] text-xs" role="tablist" aria-label="Navigazione principale">
+        <button id="tab-dashboard" onclick="switchTab('dashboard')" role="tab" aria-selected="true" class="px-3.5 py-1.5 rounded-lg bg-zinc-800 text-white font-medium shadow-sm transition-all">Dashboard</button>
+        <button id="tab-nodes" onclick="switchTab('nodes')" role="tab" aria-selected="false" class="px-3.5 py-1.5 rounded-lg text-zinc-400 hover:text-zinc-200 transition-all">Nodi</button>
+        <button id="tab-settings" onclick="switchTab('settings')" role="tab" aria-selected="false" class="px-3.5 py-1.5 rounded-lg text-zinc-400 hover:text-zinc-200 transition-all">Impostazioni</button>
       </div>
     </header>
 

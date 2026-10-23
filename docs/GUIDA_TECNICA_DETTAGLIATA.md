@@ -1,6 +1,6 @@
 # 📘 Guida Tecnica Dettagliata: Architettura & Ecosistema Antigravity
 
-> 📦 **Documento storico** — descrive l'ambiente Antigravity originale. Versione corrente per Kimi Work: [GUIDA_TECNICA-KIMI-WORK.md](./GUIDA_TECNICA-KIMI-WORK.md).
+> 📦 **Documento storico** — descrive l'ambiente Antigravity originale. Versione corrente per Kimi Work: [kimi/GUIDA_TECNICA-KIMI-WORK.md](../kimi/GUIDA_TECNICA-KIMI-WORK.md).
 
 > **Versione**: 2.0.0 — Architettura a Centro di Comando Universale  
 > **Repository di riferimento**: [tennet/modern-web-app](https://github.com/tennet/modern-web-app)  

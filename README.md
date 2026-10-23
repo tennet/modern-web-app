@@ -8,8 +8,8 @@
 - **Guida Semplice (Vademecum Pratico)**: Consulta [VADEMECUM.md](./VADEMECUM.md) per capire in linguaggio semplice come usare i 7 agenti, la memoria e i comandi quotidiani.
 - **Guida Tecnica Dettagliata**: Consulta [docs/GUIDA_TECNICA_DETTAGLIATA.md](./docs/GUIDA_TECNICA_DETTAGLIATA.md) per l'analisi approfondita dell'architettura, dei server MCP, dei lifecycle hooks e delle matrici di autonomia.
 - **Specifiche Tecniche**: Consulta [docs/architettura.md](./docs/architettura.md) per i dettagli dell'applicazione web.
-- **🇰 Vademecum Kimi Work**: Consulta [VADEMECUM-KIMI-WORK.md](./VADEMECUM-KIMI-WORK.md) per l'uso pratico dell'ambiente Kimi Work (frasi da chat, sicurezza, differenze).
-- **🇰 Guida Tecnica Kimi Work**: Consulta [docs/GUIDA_TECNICA-KIMI-WORK.md](./docs/GUIDA_TECNICA-KIMI-WORK.md) per l'architettura completa dell'ecosistema migrato (governance, skill, vault-memory, connettori, rollback).
+- **🇰 Vademecum Kimi Work**: Consulta [kimi/VADEMECUM-KIMI-WORK.md](./kimi/VADEMECUM-KIMI-WORK.md) per l'uso pratico dell'ambiente Kimi Work (frasi da chat, sicurezza, differenze).
+- **🇰 Guida Tecnica Kimi Work**: Consulta [kimi/GUIDA_TECNICA-KIMI-WORK.md](./kimi/GUIDA_TECNICA-KIMI-WORK.md) per l'architettura completa dell'ecosistema migrato (governance, skill, vault-memory, connettori, rollback).
 
 ---
 

@@ -1,6 +1,6 @@
 # 🧭 Guida Semplice ad Antigravity (Vademecum Pratico)
 
-> 📦 **Documento storico** — guida all'ambiente Antigravity originale. Versione corrente per Kimi Work: [VADEMECUM-KIMI-WORK.md](../VADEMECUM-KIMI-WORK.md).
+> 📦 **Documento storico** — guida all'ambiente Antigravity originale. Versione corrente per Kimi Work: [kimi/VADEMECUM-KIMI-WORK.md](./kimi/VADEMECUM-KIMI-WORK.md).
 
 > Questa guida spiega **senza paroloni tecnici** cosa c'è nel tuo ambiente Antigravity, come ti semplifica la vita e **cosa scrivere esattamente in chat** per ottenere qualsiasi risultato.
 
